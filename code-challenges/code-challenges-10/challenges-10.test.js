@@ -1,5 +1,7 @@
 'use strict';
 
+const { response } = require('express');
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
 
@@ -9,6 +11,25 @@ Build a simple express server. Connect a '/hello' route that sends a greeting of
 const createServer = () => {
  const express = require('express');
  const app = express();
+
+app.get('/hello', (request, response) => {
+  let greeting = "hello!";
+  response.status(200).send(greeting);
+  });
+
+app.get('/aboutme', (request, response) => {
+  response.status(200).send("this is a short bio about me");
+  });
+
+app.get('/favoritefoods', (request, response) => {
+    let sarahfavfoods = ['tacos', 'steak', 'ramen', 'dumplings'];
+    response.status(200).send(sarahfavfoods);
+    });
+
+app.get('*', (request, response) => {
+response.status(404).send('sorry!')
+});
+
   var server = app.listen(3301, function () {
     var port = server.address().port;
     console.log('Example app listening at port', port);
@@ -27,7 +48,15 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 ------------------------------------------------------------------------------------------------ */
 
 const count = (target, input) => {
-  // Solution code here...
+  let x = 0;
+  input.filter(arr => {
+    arr.filter(secondElement => {
+      if (target === secondElement) {
+        x++;
+      }
+    })
+  })
+  return x;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -40,8 +69,13 @@ You may want to use filter, map, or reduce for this problem, but are not require
 For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 ------------------------------------------------------------------------------------------------ */
 
-const totalSum = (input) => {
-  // Solution code here...
+const totalSum = (input) => { 
+  return input.reduce((a, b) => { 
+    return a + b.reduce((acc, num) => {
+      acc = acc + num;
+      return acc;
+    }, 0); 
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -57,7 +91,16 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 ------------------------------------------------------------------------------------------------ */
 
 const divisibleByFiveTwoToThePower = (input) => {
-  // Solution code here...
+  return input.map(arr => {
+    return arr.reduce((acc, val) => {
+      if(val%5===0 && typeof(val)==='number'){
+        acc.push(Math.pow(2,val))
+        return acc;
+      }else{
+        return acc; 
+      }
+    }, [])
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
