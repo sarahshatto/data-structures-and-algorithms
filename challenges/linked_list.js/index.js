@@ -2,17 +2,25 @@
 
 const LL = require('./linked-list');
 let list = new LL();
-// let listResults = 
+// let listResults =
 
 list.insert('first');
 list.insert('second');
 list.insert('third');
+list.insert('fourth');
+list.append('last');
 
-list.includes('first');
+list.toString();
+console.log('list at beginning: ', list);
+
+list.insertAfter('fourth', '4.5');
+// list.includes('first');
 // list.includes('fourth');
-console.log('This was found:', list)
-// console.log('constructed list:', list);
+// console.log('This was found:', list);
 
+list.insertBefore('second', 'insertThis');
+
+console.log('After insert:', list);
 
 //  // Create a Node class that has properties for the value stored in Node, and a pointer to the next node.  -- see node.js
 

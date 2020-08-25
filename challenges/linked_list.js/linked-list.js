@@ -17,12 +17,30 @@ class LinkedList {
     this.head = null;
   }
 
-  // insert method .. takes in any value as an argument , adds a new node with that value to the head of the list with O(1) Time performance.
-  insert(value) {
-   let node = new Node(value);
+  // .append(value) which adds a new node with the given value to the end of the list
+  append(value) {
+    let node = new Node(value);
 
+    if (!this.head) {
+      this.head = node;
+    } else {
+      let current = this.head;
+
+      while(current.next) {
+        current = current.next;
+      }
+  
+      current.next = node;
+    }
+
+    return this;
+  }
+  insert(value) {
+    let node = new Node(value);
+    
    node.next = this.head;
    this.head = node;
+  
 
    return this.head;
   }
@@ -58,10 +76,43 @@ class LinkedList {
     string = `${string} ${null}`;
    }
   }
+  console.log(string);
+}
+
+insertBefore(value, newVal) {
+  let current = this.head;
+  let previous;
+  while (current.next) {
+    if(current.value)
+
+      if (current.value === value) {
+        let node = new Node(newVal);
+        node.next = previous.next;
+        previous.next = node;
+        console.log('previous: ', previous);
+        return this;
+      }
+    previous = current;
+    current = current.next;
+  }
+}
+
+insertAfter(value, newVal) {
+  let current = this.head;
+  while(current.next) {
+    if(current.value ===value) {
+      let node = new Node(newVal);
+      let nextNode = current.next;
+      current.next = node;
+      node.next = nextNode;
+      return this;
+    }
+    current = current.next;
+  }
+}
 
 }
 
-console.log(string);
 
 
 module.exports = LinkedList;
