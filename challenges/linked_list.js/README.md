@@ -19,3 +19,4 @@ Within your LinkedList class, include a head property.
 
 ## Solution
 ![whiteboard](WhiteBoardLL.png)
+![whiteboard](Whiteboard401llzip.png)
