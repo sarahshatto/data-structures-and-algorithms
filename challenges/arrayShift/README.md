@@ -17,5 +17,5 @@ Write a function called insertShiftArray which takes in an array and the value t
 
 ## Resources
 
-![Switch Array Whiteboard](whiteboardcc2.png)
+![Switch Array Whiteboard](Whiteboardcc2.png)
 

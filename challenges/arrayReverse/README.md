@@ -1,8 +1,8 @@
-#Array Reverse Code Challenge #01 
+# Array Reverse 
 
-Pair programmed with Ben Hill 
+Code Challenge #01 : Pair programmed with Ben Hill 
 
-# Problem Domain
+# Challenge
 
 Take an array and reverse it.
 - In Place
@@ -15,7 +15,7 @@ Take an array and reverse it.
   - Continue to swap
 - When at the middle, stop
 
-# Resources
+# Solution
 
 ![Reverse Array Whiteboard](CodeChallenge1.png)
 

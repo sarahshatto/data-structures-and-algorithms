@@ -1,12 +1,4 @@
-//  // Create a Node class that has properties for the value stored in Node, and a pointer to the next node.  -- see node.js
 
-//  // in your LinkedList class, include the head property. Upon instantiation, an empty Linked List should be created. 
-
-// insert method .. takes in any value as an argument , adds a new node with that value to the head of the list with O(1) Time performance.
-
-// includes method which takes any value as an argument and returns a boolean result depending on whether that value exists as a Node's value somewhere within the list. 
-
-// toString method which takes in no arguments and returns a string representing all the values in the Linked List, 
 
 'use strict';
 
@@ -17,7 +9,7 @@ class LinkedList {
     this.head = null;
   }
 
-  // .append(value) which adds a new node with the given value to the end of the list
+  
   append(value) {
     let node = new Node(value);
 
@@ -111,8 +103,31 @@ insertAfter(value, newVal) {
   }
 }
 
+kthFromEnd(k) {
+  // To do: 
+  //  // find out how long the list is
+  //  //  
+
+  let firstCounter = this.head;
+  let previous;
+  let counter = 0;
+
+  while (current) {
+    counter++
+    current = current.next;
+
+    if (counter === k) {
+      previous = this.head;
+      previous = previous.next;
+    };
+  };
+
+};
 }
 
 
 
 module.exports = LinkedList;
+
+
+// Write a method for the Linked List class which takes a number, k, as a parameter. Return the node’s value that is k from the end of the linked list. You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges. 
