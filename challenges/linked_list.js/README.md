@@ -19,4 +19,5 @@ Within your LinkedList class, include a head property.
 
 ## Solution
 ![whiteboard](WhiteBoardLL.png)
+![whiteboard](kthfromend.jpeg)
 ![whiteboard](Whiteboard401llzip.png)
