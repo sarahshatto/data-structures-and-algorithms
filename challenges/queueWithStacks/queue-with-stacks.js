@@ -3,7 +3,7 @@
 const Stack = require("../stacksAndQueues/stacks-and-queues")
 
 class PseudoQueue {
-  constructor (___?){
+  constructor (){
     this.stack = new Stack();
   }
 
