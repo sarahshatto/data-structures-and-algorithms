@@ -5,6 +5,7 @@
 const Node = require('./node.js');
 
 class LinkedList {
+  // This ensures that the linked list does not have the head set already. 
   constructor() {
     this.head = null;
   }
@@ -105,23 +106,28 @@ insertAfter(value, newVal) {
 
 kthFromEnd(k) {
   // To do: 
-  //  // find out how long the list is
-  //  //  
+  //  // Set a node to traverse the length of the list. 
+  //  // Set a second variable to track 
+  //  // Once the node has moved "k" number of times, begin moving the second variable down the list.
+  //  // Both nodes will move until the end of the first list is reached. 
+  //  // return the value of wherever the second node has landed. 
 
-  let firstCounter = this.head;
-  let previous;
-  let counter = 0;
+  let endFinder = this.head;
+  let kFinder = this.head;
 
-  while (current) {
-    counter++
-    current = current.next;
+  for(var i = 0; i < k; i++) {
+    if(endFinder == null) {
+      return null;
+    }
+    endFinder = endFinder.next;
+  }
 
-    if (counter === k) {
-      previous = this.head;
-      previous = previous.next;
-    };
-  };
+  while(endFinder != null) {
+    endFinder = endFinder.next;
+    kFinder = kFinder.next;
+  }
 
+  return kFinder.value;
 };
 }
 
