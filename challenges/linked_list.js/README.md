@@ -9,15 +9,16 @@ Within your LinkedList class, include a head property.
 "{ a } -> { b } -> { c } -> NULL"
 
 ## Challenge Description
-- .append(value) which adds a new node with the given value to the end of the list
-- .insertBefore(value, newVal) which add a new node with the given newValue immediately before the first value node
-- .insertAfter(value, newVal) which add a new node with the given newValue immediately after the first value node
+- // PREORDER: We output the value first, check for a left, and then check for a right.  
+
+    // create the array that the values will be stored in
+
+    // function within a function --> takes in a node, checks to see if the node is valid (has a value), and if it does, we call our function preOrderAttempt on the root.left of the node. If it isn't valid, we return. 
+
+    
 
 ## Approach & Efficiency
 - The big O for this is O(n), since we do not now how many variables will be within the list.
 
 
-## Solution
-![whiteboard](WhiteBoardLL.png)
-![whiteboard](kthfromend.jpeg)
-![whiteboard](Whiteboard401llzip.png)
+<!-- ## Solution -->

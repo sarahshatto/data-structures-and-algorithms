@@ -1,15 +1,5 @@
 'use strict'; 
 
-
-// CODE CHALLENGE GOALS: 
-  // Create a Node class that has properties for the value stored in the node, the left child node, and the right child node
-  // Create a BinaryTree class: 
-  // // Define a method for each of the depth first traversals called preOrder, inOrder, and postOrder which returns an array of the values, ordered appropriately.
-
-// Create a BinarySearchTree class
-  //  // Define a method named add that accepts a value, and adds a new node with that value in the correct location in the binary search tree.
-  //  //  Define a method named contains that accepts a value, and returns a boolean indicating whether or not the value is in the tree at least once.
-
   class Node {
     constructor(value) {
       this.value = value;
@@ -24,92 +14,78 @@
     }
    
   preOrder(){
-    // PREORDER: We output the value first, check for a left, and then check for a right.  
-
-    // create the array that the values will be stored in
     let preOrderResults = [];
 
 
-    // function within a function --> takes in a node, checks to see if the node is valid (has a value), and if it does, we call our function preOrderAttempt on the root.left of the node. If it isn't valid, we return. 
     const _preOrderAttempt = (node) => {
       if (node === null) { return; }
 
-      preOrderResults.push(node.value); // This is our output 
+      preOrderResults.push(node.value);
     
-      _preOrderAttempt(node.left); // Is there a left? Sick. Run our output function on it. 
-      _preOrderAttempt(node.right); // Is there a right? Sick. Run our output function on it. 
-      // the _preOrderAttempt function begins with a check to see if the node === null, so we don't need to use an if statement. 
+      _preOrderAttempt(node.left); 
+      _preOrderAttempt(node.right); 
     }
-
-    
+    _preOrderAttempt(this.root); 
+    return preOrderResults;
   }
 
     
-  inOrder(){
-     // IN ORDER: We check for a node.left, we output the value, and then check for a node.right.   
-
-    // create the array that the values will be stored in
+  inOrder(){ 
     let inOrderResults = [];
 
-
-    // function within a function --> takes in a node, checks to see if the node is valid (has a value), and if it is valid, we check for a node.left, and then output the value, and then check for a node.right.
     const _inOrderAttempt = (node) => {
       if (node === null) { return; }
 
-      _inOrderAttempt(node.left); // Is there a left? Sick. Run our output function on it. 
+      _inOrderAttempt(node.left);
 
-      inOrderResults.push(node.value); // This is our output 
+      inOrderResults.push(node.value);
 
-      _inOrderAttempt(node.right); // Is there a right? Sick. Run our output function on it. 
-      // the _preOrderAttempt function begins with a check to see if the node === null, so we don't need to use an if statement. 
+      _inOrderAttempt(node.right); 
     }
-    
+    _inOrderAttempt(this.root); 
+    return inOrderResults;
   }
 
     
   postOrder(){
-     // POST ORDER: We check for a node.left, check for a node.right, and then we output the value.    
-
-    // create the array that the values will be stored in
     let postOrderResults = [];
 
-
-    // function within a function --> takes in a node, checks to see if the node is valid (has a value), and if it is valid, we check for a node.left, check for a node.right, and then output the value.
     const _postOrderAttempt = (node) => {
       if (node === null) { return; }
 
-      _postOrderAttempt(node.left); // Is there a left? Sick. Run our output function on it. 
+      _postOrderAttempt(node.left);
 
-      _postOrderAttempt(node.right); // Is there a right? Sick. Run our output function on it. 
-      // the _preOrderAttempt function begins with a check to see if the node === null, so we don't need to use an if statement. 
+      _postOrderAttempt(node.right);
       
-      postOrderResults.push(node.value); // This is our output 
+      postOrderResults.push(node.value); 
     }
 
+    _postOrderAttempt(this.root); 
+    return postOrderResults;
   }
+  
   }
 
 
  class BinarySearchTree extends BinaryTree {
     constructor(node = null){
-      super();
+      super(node);
     }
   
 
     add(value){
-      let newNode = new Node(value); // create a new node, calling back to the Node class, passing in a value
+      let newNode = new Node(value);
       
-      if (this.root == null) { // in the event that the list is empty .. aka there is no root 
-        this.root = newNode; // take the new node you just created and make it the root
-        return; // there's no need to traverse, there's nothing in the list
+      if (this.root == null) { 
+        this.root = newNode; 
+        return; 
       }
-      // find the correct location --> Binary Search Trees have organization. less than < Root < Greater than. 
-      // comparing the current value against the current node - greater than/less than
+      
 
       let currentNode = this.root; // Starting point is defined: at the root
       let previousNode = this.root; // This will be a reference to the previous node, but needs to start at the same spot
       
-      while (!currentNode === null) { // traverse through - 
+      while (currentNode !== null) { // traverse through - 
         previousNode = currentNode; // reassign the previousNode variable to the currentNode. 
         
         if(value < currentNode.value) { // compare value w/ currentNode - if less than, move to the left. 
@@ -132,12 +108,12 @@
 
     let currentNode = this.root; // start here 
 
-    while (!currentNode === null) { // traverse through - 
+    while (currentNode !== null) { // traverse through - 
       
       if(value < currentNode.value) { // compare value w/ currentNode - if less than, move to the left. 
         currentNode = currentNode.left; // this is redefining currentNode to "move on" to the next left node. 
       }
-      else if(value >= currentNode.value) { // ELSE if compare w/ currentNode - if greater than, move to the right. 
+      else if(value > currentNode.value) { // ELSE if compare w/ currentNode - if greater than, move to the right. 
         currentNode = currentNode.right; // this is redefining currentNode to "move on" to the next right node. 
       }
       else if(value === currentNode.value){ // if the value we passed in === currentNode's value, we found it! Return true! 
@@ -147,7 +123,7 @@
 
     return false; // If we have traversed through and cannot find our value, the loop ends and we return false. 
   }
-  
+
  } 
 
 
