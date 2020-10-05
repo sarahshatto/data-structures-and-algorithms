@@ -63,7 +63,21 @@
     _postOrderAttempt(this.root); 
     return postOrderResults;
   }
+
+  add(){
+
+  }
   
+  // you can use either depth first or breadth first to traverse the tree. 
+  // 
+  findMaximumValue(){
+
+
+  }
+
+  traversal(){
+    
+  }
   }
 
 
