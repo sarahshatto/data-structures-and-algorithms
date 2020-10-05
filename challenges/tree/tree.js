@@ -64,20 +64,104 @@
     return postOrderResults;
   }
 
-  add(){
+  add(value){
+    let newNode = new Node(value);
+
+    if (this.root == null) {
+    	this.root = newNode; 
+    	return; 
+    }
+
+    let treeQueue = [this.root];
+
+    while (treeQueue.length > 0) {
+    	let front = treeQueue.shift();
+
+    	if (front.left == null){
+    		front.left = newNode;
+    		return;
+    	}
+    	else if (front.right == null){
+    		front.right = newNode;
+    		return;
+    	}
+
+    	treeQueue.push(front.left);
+    	treeQueue.push(front.right);
+    }
 
   }
   
   // you can use either depth first or breadth first to traverse the tree. 
   // 
   findMaximumValue(){
-
-
-  }
-
-  traversal(){
+    if (this.root == null) {
+    	return;
+    }
     
+    let treeQueue = [this.root];
+    let maxValue = this.root.value;
+        
+     while (treeQueue.length > 0) {
+       let front = treeQueue.shift();
+       
+       if (front.value > maxValue){
+         maxValue = front.value; 
+       }
+       
+       if (front.left !==null){
+         treeQueue.push(front.left);
+       }
+       
+       if (front.right !==null){
+         treeQueue.push(front.right);
+       }		
+  	}
+    
+    return maxValue; 
   }
+
+  traversal(tree){
+    //check to make sure the tree isn't empty...
+    if (tree == null) {
+    	return;
+    }
+    
+    // ARRAY FYI - so we act like a queue!
+    // array.push = add something to the back of the queue (aka enqueue)
+    // array.shift = remove and return the first entry in the array (aka dequeue)
+    // array.length = the length of the array (aka size, or > 0 for checking empty)
+    
+    let treeQueue = [tree.root];
+    // create a variable for the first node? front node? current node? 
+
+    //while loop .. so long as there is a value in the queue // aka while breadth.peek(), 
+    // node front = breadth.dequeue()
+    // console.log(front.value) 
+    // // if (front.left !== null){ 
+      // breadth.enqueue(front.left) 
+    // }
+    // if (front.right !== null){ 
+      // breadth.enqueue(front.right)
+    // }
+        
+     while (treeQueue.length > 0) {
+       let front = treeQueue.shift();
+       console.log(front.value);
+       
+       if (front.left !==null){
+         treeQueue.push(front.left);
+       }
+       
+       if (front.right !==null){
+         treeQueue.push(front.right);
+       }
+		
+  }
+
+  // breadth first traversal iterates through a tree by going through each level of the tree node-by-node. 
+  // uses a queue and a while loop to traverse. 
+
   }
 
 
