@@ -1,3 +1,5 @@
+'use strict';
+
 class Node {
   constructor(value, k) {
       this.value = value;
@@ -75,4 +77,4 @@ secondTree.add(front.value.toString());
 return secondTree;
 }
 
-modules.exports = {kTree, fizzBuzz};
+module.exports = {kTree, fizzBuzz};
