@@ -1,7 +1,7 @@
 {
   "name": "3-code-challenges",
   "version": "1.0.0",
-  "description": "",
+  "description": "Starter code added in",
   "main": "index.js",
   "scripts": {
     "test": "jest --coverage --verbose",
@@ -13,8 +13,17 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
     "express": "^4.17.1",
-    "jest": "^24.1.0",
+    "jest": "^24.9.0",
     "mustache": "^4.0.1",
     "supertest": "^4.0.2"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sarahshatto/data-structures-and-algorithms.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sarahshatto/data-structures-and-algorithms/issues"
+  },
+  "homepage": "https://github.com/sarahshatto/data-structures-and-algorithms#readme"
 }

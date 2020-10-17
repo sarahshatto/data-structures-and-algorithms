@@ -9,7 +9,7 @@
   }
   
   class BinaryTree {
-    constructor(node = null) {
+    constructor(node = null) { // default parameter = if null is not passed in, you're assigning the value of null // so you can pass in a node, but if you don't, then node defaults to null. 
       this.root = node;
     }
    
@@ -179,6 +179,9 @@
         return; 
       }
       
+      if(root.value === value){
+        return
+      }
 
       let currentNode = this.root; // Starting point is defined: at the root
       let previousNode = this.root; // This will be a reference to the previous node, but needs to start at the same spot
@@ -189,7 +192,7 @@
         if(value < currentNode.value) { // compare value w/ currentNode - if less than, move to the left. 
           currentNode = currentNode.left; // this is redefining currentNode to "move on" to the next left node. 
         }
-        else if(value >= currentNode.value) { // ELSE if compare w/ currentNode - if greater than, move to the right. 
+        else if(value > currentNode.value) { // ELSE if compare w/ currentNode - if greater than, move to the right. 
           currentNode = currentNode.right; // this is redefining currentNode to "move on" to the next right node. 
         }
       }
