@@ -44,3 +44,5 @@ function Merge(left, right, arr) {
     }
   };
 };
+
+module.exports = Mergesort;
