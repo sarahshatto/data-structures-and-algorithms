@@ -28,7 +28,7 @@ class LL {
     } else {
       let current = this.head;
 
-      while(current) {
+      while (current) {
         console.log(current.val);
         current = current.next;
       }
@@ -60,7 +60,7 @@ class Hashmap {
   add(key, val) {
     let hash = this.hash(key); // the hash function is meant to give us an index placement
 
-    if(!this.storage[hash]) {
+    if (!this.storage[hash]) {
       let ll = new LL();
       ll.add([key, val]);
       this.storage[hash] = ll; // this is a single ll, with a single node, with a value [key, val]
@@ -70,7 +70,11 @@ class Hashmap {
   }
 
   get(key) {
-    // you need to build this
+    // takes in the key and returns the value from the table.
+  }
+
+  contains(key) {
+    // takes in the key and returns a boolean, indicating if the key exists in the table already. 
   }
 }
 
