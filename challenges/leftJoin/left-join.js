@@ -48,8 +48,25 @@ class HashTable {
     constructor() {
         // we are determining the overall size of the hash table/ the size of the array/data structure we've chosen for the hash table
         // what if here we also save an array of the keys for this HashTable
-        let keys = [];
+        this.size = size;
+        this.storage = new Array(size);
+        this.keys = [];
     }
+
+    // we add something to a hash table
+    // add("butts", "big")
+    // we make a hash value for "butts" -> index
+    // so maybe "butts" turns into 68
+    // this.storage[68] => "big"
+    // this.keys.add("butts")
+    // so that later we can look up "butts"
+    // and it can give us index # 68's value
+    // which is "big"
+
+    // this.keys = ["fond", "wrath", "diligent", ...]
+
+    // (let i = 0; i < hashTable.keys.length; i++) 
+    //  hashTable.keys[0] // "fond"
 
     add(key, value) {
        
