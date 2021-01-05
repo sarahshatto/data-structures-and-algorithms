@@ -18,16 +18,21 @@ class PseudoQueue {
 
     let tempStack = new Stack(); // create a second stack
 
-    while (!this.stack.isEmpty) { // loop through the stack, as long as it isn't empty 
+    while (!this.stack.isEmpty()) { // loop through the stack, as long as it isn't empty 
       tempStack.push(this.stack.pop()); // push each node into the other stack after you've popped it off the first.
     }
 
     let queueFront = tempStack.pop(); 
 
-    while (!this.stack.isEmpty()) {
+    while (!tempStack.isEmpty()) {
       this.stack.push(tempStack.pop());
     }
 
     return queueFront;
   }
 }
+
+// Stacks: FILO 
+// Queues: FIFO
+
+// 
