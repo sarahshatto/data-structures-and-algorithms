@@ -17,5 +17,5 @@ Take an array and reverse it.
 
 # Solution
 
-![Reverse Array Whiteboard](CodeChallenge1.png)
+[Reverse Array Whiteboard](CodeChallenge1.png)
 
